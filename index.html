@@ -7,69 +7,7 @@ Yolo
 </title>
 
 
-<script src="script.js">
-var prompt = require('prompt-sync')();
-var AssistantV1 = require('watson-developer-cloud/assistant/v1');
-
-r prompt = require('prompt-sync')();
-var AssistantV1 = require('watson-developer-cloud/assistant/v1');
-
-// Set up Assistant service wrapper.
-var service = new AssistantV1({
-  username: '{c0dfd712-4f25-47f6-972d-27d5915c18be}', // replace with service username
-  password: '{SyJ7FM1QJk0S}', // replace with service password
-  version: '2018-07-10'
-});
-
-var workspace_id = '{112d702e-2593-4e51-a263-d201d733d4e0}'; // replace with workspace ID
-
-// Start conversation with empty message.
-service.message({
-  workspace_id: workspace_id
-  }, processResponse);
-
-// Process the service response.
-function processResponse(err, response) {
-  if (err) {
-    console.error(err); // something went wrong
-    return;
-  }
-
-  var endConversation = false;
-
-  // Check for client actions requested by the dialog. Assumes at most a single
-  // action.
-  if (response.actions) {
-    if (response.actions[0].type === 'client') {
-      if (response.actions[0].name === 'display_time') {
-        // User asked what time it is, so we output the local system time.
-        console.log('The current time is ' + new Date().toLocaleTimeString() + '.');
-      } else if (response.actions[0].name === 'end_conversation') {
-        // User said goodbye, so we're done.
-        console.log(response.output.generic[0].text);
-        endConversation = true;
-      }
-    }
-  } else {
-    // Display the output from dialog, if any. Assumes a single text response.
-    if (response.output.generic.length != 0) {
-        console.log(response.output.generic[0].text);
-    }
-  }
-
-  // If we're not done, prompt for the next round of input.
-  if (!endConversation) {
-    var newMessageFromUser = prompt('>> ');
-    service.message({
-      workspace_id: workspace_id,
-      input: { text: newMessageFromUser },
-      // Send back the context to maintain state.
-      context : response.context,
-    }, processResponse)
-  }	
-	
-
-}</script>
+<script src="script.js"></script>
 </head>
 <body>
 	<div class="topNavigationBar">
@@ -79,7 +17,7 @@ function processResponse(err, response) {
   <a href="about.html">About</a>
 </div>
 			<center>
-			<h1 style="color:white; font-family: Comic Sans MS;font-size: 80px;">You Only Live Once!! </h1>
+			<h1 style="color:white; font-family: Comic Sans MS;font-size: 80px;text-shadow: 3px 3px 3px #FF0000;">You Only Live Once!! </h1>
 		</center>
 <center>
 <div class="w3-content w3-section" style="max-width:75%">
@@ -106,72 +44,36 @@ function carousel() {
 }
 </script>
 
-<p style="color:white;font-family: Comic Sans MS; font-size: 50px;text-align:center;">
+<p style="color:white;font-family: Comic Sans MS; font-size: 50px;text-align:center;text-shadow: 3px 3px 3px #FF0000;">
 
 
 24x7 Helpline: 91-22-27546669
 <br>
 </p>
-<p style="color:white;font-family: Comic Sans MS; font-size: 25px; text-align:center; font-style: italic;">
+<p style="color:white;font-family: Comic Sans MS; font-size: 25px; text-align:center; font-style: italic;text-shadow: 1px 1px 1px #000000;">
 "When you feel like giving up, just remember the reason why you held on for so long."
 <br>
 Remember, you are precious
 We Listen, We Care:
 Whatever you are going through, we go through it with you.
 
-
 Warning Signs
+
 How to Help
+
 Suicide is one of the top causes of death in the U.S., with rates rising across the country. Nearly 45,000 Americans died by suicide in 2016, according to the CDC.
 
 Suicide is preventable. And that starts with knowing what to look for and what to do.
 
-If you or someone you know is thinking about suicide, call the National Suicide Prevention Lifeline at 800-273-TALK (800-273-8255). It’s always open, and you can speak to a trained counselor.
+If you or someone you know is thinking about suicide, call the National Suicide Prevention Lifeline at (800-273-8255). It’s always open, and you can speak to a trained counselor.<br><br>
 
 If someone is threatening to kill themselves, don’t leave them alone. Call 911 or, if you can do it safely, take them to the nearest emergency room. Try to keep the person calm, and get help from others.
-
- 
 
 Warning Signs
 
 People who commit suicide don’t want to die, but to end their pain. Don’t dismiss their talk of suicide as just threats. If you notice any signs that they may be thinking about harming themselves, get help.
 
-Focuses on death. Some people talk openly about wanting to die or to commit suicide. Or they dwell on the topic of death and dying. They may research ways to kill themselves or buy a gun, knife, or pills.
-
-CONTINUE READING BELOW
-YOU MIGHT LIKE
-
-Makes plans. The person may take steps to prepare for death, like updating a will, giving away stuff, and saying goodbye to others. Some may write a suicide note.
-
-Becomes withdrawn. The person avoids close friends and family, loses interest in activities and social events, and becomes isolated.
-
-Shows despair. The person may talk openly about unbearable pain, or feeling like they’re a burden on others.
-
-Shows swings in mood or  sleep . Often, the person may be depressed, anxious, sad, or angry. They also may be very irritable, moody, or aggressive. But they can suddenly turn calm once they’ve decided to go through with the suicide. Then they may sleep a lot more or a lot less than usual.
-
-Drinks or takes drugs. Substance misuse raises the chance of suicide. Using a lot of drugs and alcohol may be an attempt to dull the pain or to harm themselves.
-
-Acts recklessly. The person may take dangerous chances, like driving drunk or having risky sex.
-
-People may also be at risk if they have:
-
-Mental disorders
-Addictions to alcohol or other drugs
-A serious physical illness
-A major loss (such as the death of a loved one or the loss of a relationship or job)
-Serious legal or financial problems
-A history of trauma or abuse
-
-IN THIS ARTICLE
-Warning Signs
-How to Help
-How to Help
-
-Take all suicide warning signs seriously. Your involvement and support may help save a life.
-
-Don’t be afraid to ask whether the person you’re concerned about is thinking of suicide, is depressed, or has problems. Talking about it won’t make the person act on their feelings. It might actually help ease suicidal thoughts -- and lets you know if you need to take further action.
-
-Encourage the person to talk to a mental health professional as soon as possible. The National Suicide Prevention Lifeline is always open. You can reach a trained counselor at 800-273-TALK (800-273-8255).
+Focuses on death. Some people talk openly about wanting to die or to commit suicide. Or they dwell on the topic of death and dying. They may research ways to kill themselves or buy a gun, knife, or pills.<br><br><br>
 </p>
 </div>
 </body>
