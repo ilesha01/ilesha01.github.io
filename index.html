@@ -1,7 +1,69 @@
-<htnml>
+<!DOCTYPE HTML>
+<html>
 <head>
+  <link rel="stylesheet" type="text/css" href="design.css">
+<title>
+Yolo
+</title>
+<script>
+	var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+	  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 5000); // Change image every 2 seconds
+}
+</script>
+<script src="script.js"></script>
 </head>
-<body>
-Hello World
+<body background="wallpaper.jpg">
+	<div class = "body">
+	<div class="topNavigationBar">
+
+  <a class="active" href="index.html">You Are Not Alone</a>
+  <a href="helpline.html">Helpline</a>
+  <a href="about.html">About</a>
+</div>
+			<center>
+			<h1 style="color:white;">You Only Live Once!! </h1>
+		</center>
+
+
+<p style="color:white;">
+
+	24x7 Helpline: 91-22-27546669
+
+“When you feel like giving up, just remember the reason why you held on for so long.”
+
+Remember, you are precious
+We Listen, We Care:
+Whatever you are going through, we go through it with you.
+
+</p>
+</div>
 </body>
 </html>
+
+
