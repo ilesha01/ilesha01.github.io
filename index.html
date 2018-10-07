@@ -7,7 +7,50 @@ Yolo
 </title>
 
 
-<script src="script.js"></script>
+<script src="script.js">
+var prompt = require('prompt-sync')();
+var AssistantV1 = require('watson-developer-cloud/assistant/v1');
+
+// Set up Assistant service wrapper.
+var service = new AssistantV1({
+  username: '{c0dfd712-4f25-47f6-972d-27d5915c18be}', // replace with service username
+  password: '{SyJ7FM1QJk0S}', // replace with service password
+  version: '2018-07-10'
+});
+
+var workspace_id = '{112d702e-2593-4e51-a263-d201d733d4e0}'; // replace with workspace ID
+
+// Start conversation with empty message.
+service.message({
+  workspace_id: workspace_id
+  }, processResponse);
+
+// Process the service response.
+function processResponse(err, response) {
+  if (err) {
+    console.error(err); // something went wrong
+    return;
+  }
+
+  // If an intent was detected, log it out to the console.
+  if (response.intents.length > 0) {
+    console.log('Detected intent: #' + response.intents[0].intent);
+  }
+
+  // Display the output from dialog, if any. Assumes a single text response.
+  if (response.output.generic.length != 0) {
+      console.log(response.output.generic[0].text);
+  }
+
+  // Prompt for the next round of input.
+    var newMessageFromUser = prompt('>> ');
+    // Send back the context to maintain state.
+    service.message({
+      workspace_id: workspace_id,
+      input: { text: newMessageFromUser },
+      context : response.context,
+    }, processResponse)
+}</script>
 </head>
 <body>
 	<div class="topNavigationBar">
